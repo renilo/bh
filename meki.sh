@@ -1,5 +1,3 @@
-sudo -i
-
 apt update
 
 apt install proxychains
