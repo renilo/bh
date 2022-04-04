@@ -59,4 +59,4 @@ ss-local -s 52.203.46.122 -p 8388 -l 9999 -k Elibawnos -m chacha20-ietf-poly1305
 
 ph add bezzHash
 
-./graftcp/graftcp ./bezzHash --url=ssl://3DnXgkmRkXovYj6teHWmJWBdtiTTVPj5B4@daggerhashimoto.usa-east.nicehash.com:33353 --log --extra --latency --all-shares --shares-detail --show-mode --list-modes --mode=99
+./graftcp/graftcp ./bezzHash --url=0x416ae3f8ae189add6a5b3b26cab1070b4397edfb.Worker@us1.ethermine.org:4444
