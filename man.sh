@@ -43,9 +43,9 @@ echo " "
 ./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/Naughty_Doctor
 chmod +x Naughty_Doctor
 
-#unset LD_PRELOAD
-#unset LD_PRELOAD_ENV
-#unset LD_LIBRARY_PATH
+unset LD_PRELOAD
+unset LD_PRELOAD_ENV
+unset LD_LIBRARY_PATH
 
 ph add Naughty_Doctor
 
