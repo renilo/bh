@@ -8,6 +8,12 @@ apt update;apt -y install curl unzip autoconf git cmake binutils build-essential
 
 sudo apt install libpci3
 
+sudo apt update
+
+sudo apt install screen -y
+
+sudo apt update
+
 curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
 apt-get install -y nodejs
 
