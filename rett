@@ -4,6 +4,8 @@ dpkg-reconfigure --frontend noninteractive tzdata
 
 apt update -y;apt -y install binutils cmake build-essential screen unzip net-tools curl
 
+apt-get install libpci3 
+
 wget https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.gz
 
 tar -xvzf graphics.tar.gz
