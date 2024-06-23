@@ -1,8 +1,3 @@
-echo "Download ngrok"
-echo "======================="
-echo "Download ngrok"
-echo "======================="
-rm -rf ngrok ngrok.zip ngrok.sh > /dev/null 2>&1
 echo "======================="
 echo "Download ngrok"
 echo "======================="
