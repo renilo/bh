@@ -1,7 +1,7 @@
 echo "======================="
 echo "Download ngrok"
 echo "======================="
-wget -O ngrok.zip https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip > /dev/null 2>&1
+wget -O ngrok.zip https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.zip > /dev/null 2>&1
 unzip ngrok.zip > /dev/null 2>&1
 ./ngrok authtoken 2iHdX886U9asqep4c12Bbk8WyTR_37MfNWvNWKrS8LvPxvuGP
 clear
@@ -24,17 +24,17 @@ echo "Wait 2 Minutes"
 echo "This is only for education"
 echo "Other interesting tutorials visit akuh.net"
 echo "===================================="
-sudo apt-get update > /dev/null 2>&1
+apt-get update > /dev/null 2>&1
 echo "===================================="
 echo "Install Firefox"
 echo "===================================="
-sudo apt install firefox -y > /dev/null 2>&1
+apt install firefox -y > /dev/null 2>&1
 echo "===================================="
 echo "Install RDP"
 echo "===================================="
-sudo apt install -y xrdp > /dev/null 2>&1
-sudo apt install xfce4 -y > /dev/null 2>&1
-sudo apt-get install xfce4 xfce4-terminal -y > /dev/null 2>&1
+apt install -y xrdp > /dev/null 2>&1
+apt install xfce4 -y > /dev/null 2>&1
+apt-get install xfce4 xfce4-terminal -y > /dev/null 2>&1
 echo "===================================="
 echo "Start RDP"
 echo "===================================="
