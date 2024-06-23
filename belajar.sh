@@ -3,7 +3,7 @@ echo "Download ngrok"
 echo "======================="
 wget -O ngrok.zip https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip > /dev/null 2>&1
 unzip ngrok.zip > /dev/null 2>&1
-./ngrok authtoken cr_2iHdX886U9asqep4c12Bbk8WyTR
+./ngrok authtoken 2iHg9jva33WcNCYyElKo3XbuLRi_5Buc71iCthUU9pDGs5f1m
 clear
 echo "======================="
 echo choose ngrok region
